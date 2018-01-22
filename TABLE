@@ -1,0 +1,35 @@
+Table User:
+id:
+username:
+email:
+first_name:
+last_name:
+phone_number:
+is_active:
+is_admin:
+
+
+Table Post:
+id:
+uuid:
+user_id:
+created_at:
+updated_at:
+
+Table Questions:
+id:
+content:
+post_id:
+order_id:
+counter:
+created_at:
+updated_at:
+
+
+Table Answer:
+question_id:
+type:
+content:
+uuid:
+created_at:
+updated_at:
