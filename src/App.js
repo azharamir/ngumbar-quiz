@@ -4,7 +4,6 @@ import Topic from './components/Topic';
 import './App.css';
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -14,7 +13,6 @@ class App extends Component {
       </Router>
     );
   }
-
 }
 
 export default App;

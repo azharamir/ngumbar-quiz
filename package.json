@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aigle": "^1.10.1",
     "immutability-helper": "^2.6.4",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-addons-update": "^15.6.2",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.0"
   },
   "scripts": {

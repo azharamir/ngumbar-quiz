@@ -3,6 +3,21 @@ import PropTypes from 'prop-types';
 
 class AnswerOption extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      answerType: props.answerType,
+      answer: props.answer,
+      questionId: props.questionId
+    }
+  }
+
+
+  componentWillMount(){
+    const { answerType, answer, questionId } = this.props;
+    this.setState({ answerType, answer, questionId });
+  }
+
   render(){
     return(
       <li className="answerOption">
@@ -10,12 +25,11 @@ class AnswerOption extends Component {
           type="radio"
           className="radioCustomButton"
           name="radioGroup"
-          checked={this.props.answerType === this.props.answer}
-          id={this.props.answerType}
-          answer={this.props.questionId}
-          value={this.props.answerType}
+          checked={this.state.answerType === this.state.answer}
+          id={this.state.answerType}
+          question_id={this.state.questionId}
+          value={this.state.answerType}
           onChange={this.props.onAnswerSelected}
-          onClick={this.props.onClickSelected}
         />
         <label className="radioCustomLabel" htmlFor={this.props.answerType}>
           {this.props.answerContent}
@@ -30,8 +44,7 @@ AnswerOption.propTypes = {
   answerType: PropTypes.string.isRequired,
   answerContent: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
-  onAnswerSelected: PropTypes.func.isRequired,
-  onClickSelected: PropTypes.func.isRequired
+  onAnswerSelected: PropTypes.func.isRequired
 };
 
 export default AnswerOption;

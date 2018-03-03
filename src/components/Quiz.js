@@ -9,7 +9,21 @@ import PropTypes from 'prop-types';
 class Quiz extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      questionId: props.questionId,
+      answer: props.answer
+    }
     this.renderAnswerOptions = this.renderAnswerOptions.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    const { questionId, answer } = this.props;
+    this.setState({ questionId, answer });
+  }
+
+  componentWillMount(){
+    const { questionId, answer } = this.props;
+    this.setState({ questionId, answer });
   }
 
   renderAnswerOptions = (key) => {
@@ -19,9 +33,8 @@ class Quiz extends Component {
         answerContent={key.content}
         answerType={key.type}
         answer={this.props.answer}
-        questionId={this.props.questionId}
+        questionId={this.state.questionId}
         onAnswerSelected={this.props.onAnswerSelected}
-        onClickSelected={this.props.onClickSelected}
       />
     );
   }
@@ -56,13 +69,12 @@ class Quiz extends Component {
 Quiz.propTypes = {
   answer: PropTypes.string.isRequired,
   answerOptions: PropTypes.array.isRequired,
-  counter: PropTypes.number,
+  counter: PropTypes.number.isRequired,
   question: PropTypes.string.isRequired,
   questionId: PropTypes.any.isRequired,
   questionTotal: PropTypes.number.isRequired,
   onAnswerSelected: PropTypes.func.isRequired,
-  onPageSelected: PropTypes.func.isRequired,
-  onClickSelected: PropTypes.func.isRequired
+  onPageSelected: PropTypes.func.isRequired
 };
 
 export default Quiz;

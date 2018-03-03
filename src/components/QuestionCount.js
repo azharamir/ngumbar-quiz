@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-function QuestionCount(props) {
-  return (
-    <div className="questionCount">
-      Question <span>{props.counter}</span> of <span>{props.total}</span>
-    </div>
-  );
+
+class QuestionCount extends Component {
+  render() {
+    return (
+      <div className="questionCount">
+        Question <span>{this.props.counter}</span> of <span>{this.props.total}</span>
+      </div>
+    );
+  }
 }
 
 QuestionCount.propTypes = {
